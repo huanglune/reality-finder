@@ -6,7 +6,7 @@ dist/
 *.egg-info/
 
 # Runtime data
-Country.mmdb
 *.csv
-!src/realitlscanner/data/*.txt
-!src/realitlscanner/data/*.conf
+
+# Keep bundled data
+!src/realitlscanner/data/*

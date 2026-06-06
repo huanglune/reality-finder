@@ -94,13 +94,9 @@ uvx reality-finder check -f domains.txt
 
 Scans IP ranges for TLS 1.3 + H2 endpoints, then verifies each candidate through a multi-stage pipeline: GFW blocklist, GeoIP, TLS 1.3, X25519, HTTP/2, SNI match, certificate validity, CDN detection, and popular website detection. Domains that fail hard requirements are excluded; CDN and popularity are flagged but not excluded.
 
-## GeoIP (Optional)
+## GeoIP
 
-Download Country.mmdb to enable geographic filtering (auto-excludes domestic IPs):
-
-```bash
-wget -O Country.mmdb https://github.com/Loyalsoldier/geoip/releases/latest/download/Country.mmdb
-```
+GeoIP database (Country.mmdb) is bundled — geographic filtering works out of the box.
 
 ## Notes
 

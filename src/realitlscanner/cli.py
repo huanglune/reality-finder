@@ -96,6 +96,7 @@ async def _run_find(args: argparse.Namespace) -> None:
     )
     table.add_column("Rating", justify="center", width=6, no_wrap=True)
     table.add_column("Domain", min_width=24)
+    table.add_column("Region", justify="center", width=6)
     table.add_column("Handshake", justify="right", width=9)
     table.add_column("Validity", justify="right", width=8)
     table.add_column("CDN", justify="center", width=4)
@@ -144,9 +145,11 @@ async def _run_find(args: argparse.Namespace) -> None:
             ms = f"{result.handshake_ms:.0f}ms"
             days = f"{result.cert_days_left}d"
             name = result.final_domain or result.domain
+            region = result.country if result.country and result.country != "未知" else "-"
             table.add_row(
                 Text(score_text, style=score_style),
                 name,
+                region,
                 ms,
                 days,
                 cdn,
